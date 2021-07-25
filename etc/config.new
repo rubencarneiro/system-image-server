@@ -1,0 +1,24 @@
+[global]
+base_path = /home/rcarneiro/system-image-server
+channels = 16.04/arm64/android9/stable
+gpg_key_path = secret/gpg/keys/
+gpg_keyring_path = secret/gpg/keyrings/
+publish_path = /var/www/html/
+state_path = state/
+public_fqdn = system-image.sageteamobile.com
+public_http_port = 80
+public_https_port = 443
+
+[channel_16.04/arm64/android9/stable]
+type = auto
+versionbase = 1
+tag = OTA-18.1
+fullcount = 20
+deltabase = 16.04/arm64/android9/stable
+files = ubuntu, device,sargo, keyring, version, blacklist
+file_ubuntu = http;https://github.com/rubencarneiro/sagetea.github.io/releases/download/1.0/ubuntu-touch-android9-arm64.tar.gz;name=ubports,monitor=https://github.com/rubencarneiro/sagetea.github.io/releases/download/1.0/android9.tar.build
+file_device,sargo = http;https://github.com/rubencarneiro/sagetea.github.io/releases/download/1.0/halium_sargo.tar.xz;name=device,monitor=https://github.com/rubencarneiro/sagetea.github.io/releases/download/1.0/halium_sargo.tar.build
+file_keyring = keyring;archive-master
+file_version = version
+file_blacklist = blacklist
+
